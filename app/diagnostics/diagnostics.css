@@ -1,0 +1,120 @@
+.diagnostics-page {
+  min-height: 100vh;
+  margin: 0;
+  background: #050505;
+  overflow-x: hidden;
+}
+
+.diagnostics-inner {
+  opacity: 0;
+}
+
+.diagnostics-visual {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  background: #050505;
+}
+
+.diagnostics-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.diagnostics-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.diagnostics-hotspots a,
+.hero-read-link,
+.read-link,
+.bottom-contact-link {
+  position: absolute;
+  color: transparent;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.diagnostics-hotspots a {
+  top: 1.75%;
+  height: 2.3%;
+}
+
+.home-link { left: 27.4%; width: 4.6%; }
+.approach-link { left: 32.3%; width: 9.1%; }
+.diagnostics-link { left: 41.7%; width: 8.4%; }
+.solutions-link { left: 50.3%; width: 7.4%; }
+.expertise-link { left: 57.9%; width: 7.3%; }
+.about-link { left: 65.2%; width: 4.8%; }
+.insights-link { left: 70.1%; width: 6.8%; }
+
+.contact-link {
+  top: 1.15% !important;
+  left: 79.2%;
+  width: 18.3%;
+  height: 3.2% !important;
+}
+
+.hero-read-link {
+  left: 5.4%;
+  top: 29.2%;
+  width: 16%;
+  height: 3.1%;
+}
+
+.read-link {
+  left: 58.7%;
+  top: 81.2%;
+  width: 16.1%;
+  height: 3.1%;
+}
+
+.bottom-contact-link {
+  left: 65%;
+  top: 94.8%;
+  width: 30.2%;
+  height: 3.1%;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .diagnostics-visual {
+    overflow: hidden;
+  }
+
+  .diagnostics-art {
+    width: 172%;
+    max-width: none;
+    transform: translateX(-21%);
+  }
+
+  .diagnostics-hotspots,
+  .hero-read-link,
+  .read-link,
+  .bottom-contact-link {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diagnostics-inner {
+    opacity: 1;
+    transform: none;
+  }
+}
