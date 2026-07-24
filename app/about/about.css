@@ -124,20 +124,7 @@
 }
 
 .closing-copy {
-  position: absolute;
-  left: 6.6%;
-  bottom: 3.2%;
-  width: 38%;
-  color: #f4e7d2;
-  line-height: 1.05;
-}
-
-.closing-copy h2 {
-  margin: 0;
-  font-family: "Times New Roman", Georgia, serif;
-  font-size: clamp(30px, 4vw, 63px);
-  line-height: 1.04;
-  font-weight: 400;
+  display: none;
 }
 
 .sr-only {
