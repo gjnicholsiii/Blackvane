@@ -1,0 +1,9 @@
+.approach-page{min-height:100vh;margin:0;background:#050505;overflow-x:hidden}
+.approach-approved{position:relative;width:100%;opacity:0}
+.approach-art{display:block;width:100%;height:auto;user-select:none}
+.approach-hotspots{position:absolute;inset:0;pointer-events:none}
+.approach-hotspots a{position:absolute;top:2.25%;height:2.3%;color:transparent;text-decoration:none;pointer-events:auto}
+.home-link{left:27.6%;width:4.9%}.approach-link{left:32.8%;width:9.3%}.diagnostics-link{left:42.3%;width:8.2%}.solutions-link{left:50.5%;width:7.2%}.expertise-link{left:57.9%;width:7.2%}.about-link{left:65.2%;width:4.8%}.insights-link{left:70.1%;width:6.7%}.contact-link{top:1.7%!important;left:78.4%;width:19.2%;height:3.1%!important}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:760px){.approach-approved{overflow:hidden}.approach-art{width:156%;max-width:none;transform:translateX(-18%)}.approach-hotspots{display:none}}
+@media(prefers-reduced-motion:reduce){.approach-approved{opacity:1;transform:none}}
