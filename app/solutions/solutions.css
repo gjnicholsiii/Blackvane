@@ -1,0 +1,111 @@
+.solutions-page {
+  min-height: 100vh;
+  margin: 0;
+  background: #050505;
+  overflow-x: hidden;
+}
+
+.solutions-inner {
+  opacity: 0;
+}
+
+.solutions-visual {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  background: #050505;
+}
+
+.solutions-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.solutions-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.solutions-hotspots a,
+.how-link,
+.contact-cta {
+  position: absolute;
+  color: transparent;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.solutions-hotspots a {
+  top: 1.65%;
+  height: 2.45%;
+}
+
+.home-link { left: 23.6%; width: 4.5%; }
+.approach-link { left: 28.7%; width: 9.3%; }
+.diagnostics-link { left: 38.1%; width: 8.5%; }
+.solutions-link { left: 46.8%; width: 7.4%; }
+.expertise-link { left: 54.4%; width: 7.3%; }
+.about-link { left: 61.9%; width: 4.7%; }
+.insights-link { left: 66.8%; width: 6.9%; }
+
+.contact-link {
+  top: 1.15% !important;
+  left: 79.2%;
+  width: 18.2%;
+  height: 3.2% !important;
+}
+
+.how-link {
+  left: 4.6%;
+  top: 27.7%;
+  width: 14.7%;
+  height: 3.1%;
+}
+
+.contact-cta {
+  left: 56.7%;
+  top: 93.5%;
+  width: 29.2%;
+  height: 3.2%;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .solutions-visual {
+    overflow: hidden;
+  }
+
+  .solutions-art {
+    width: 172%;
+    max-width: none;
+    transform: translateX(-21%);
+  }
+
+  .solutions-hotspots,
+  .how-link,
+  .contact-cta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solutions-inner {
+    opacity: 1;
+    transform: none;
+  }
+}
