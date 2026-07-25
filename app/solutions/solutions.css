@@ -31,8 +31,7 @@
 }
 
 .solutions-hotspots a,
-.how-link,
-.contact-cta {
+.bottom-talk-link {
   position: absolute;
   color: transparent;
   text-decoration: none;
@@ -40,37 +39,52 @@
 }
 
 .solutions-hotspots a {
-  top: 1.65%;
-  height: 2.45%;
+  top: 0.7%;
+  height: 2.2%;
 }
 
-.home-link { left: 23.6%; width: 4.5%; }
-.approach-link { left: 28.7%; width: 9.3%; }
-.diagnostics-link { left: 38.1%; width: 8.5%; }
-.solutions-link { left: 46.8%; width: 7.4%; }
-.expertise-link { left: 54.4%; width: 7.3%; }
-.about-link { left: 61.9%; width: 4.7%; }
-.insights-link { left: 66.8%; width: 6.9%; }
+.home-link {
+  left: 29.5%;
+  width: 4.1%;
+}
+
+.about-link {
+  left: 35.2%;
+  width: 4.5%;
+}
+
+.solutions-link {
+  left: 41.2%;
+  width: 7.8%;
+}
+
+.finding-link {
+  left: 50.2%;
+  width: 13.3%;
+}
+
+.insights-link {
+  left: 65.1%;
+  width: 7.1%;
+}
 
 .contact-link {
-  top: 1.15% !important;
-  left: 79.2%;
-  width: 18.2%;
-  height: 3.2% !important;
+  left: 73.9%;
+  width: 6.4%;
 }
 
-.how-link {
-  left: 4.6%;
-  top: 27.7%;
-  width: 14.7%;
-  height: 3.1%;
+.talk-link {
+  top: 0.48% !important;
+  left: 82.5%;
+  width: 10.5%;
+  height: 2.5% !important;
 }
 
-.contact-cta {
-  left: 56.7%;
-  top: 93.5%;
-  width: 29.2%;
-  height: 3.2%;
+.bottom-talk-link {
+  left: 56.8%;
+  top: 96.2%;
+  width: 13.5%;
+  height: 2.4%;
 }
 
 .sr-only {
@@ -86,19 +100,14 @@
 }
 
 @media (max-width: 760px) {
-  .solutions-visual {
-    overflow: hidden;
-  }
-
   .solutions-art {
-    width: 172%;
+    width: 174%;
     max-width: none;
-    transform: translateX(-21%);
+    transform: translateX(-23%);
   }
 
   .solutions-hotspots,
-  .how-link,
-  .contact-cta {
+  .bottom-talk-link {
     display: none;
   }
 }
