@@ -1,0 +1,9 @@
+Upload every file and folder inside Blackvane-main to the root of the GitHub repository.
+Replace matching files.
+
+Homepage changes:
+- approved incision logo
+- live HTML hero copy
+- Blackvane.mp4 trimmed before generated text appears
+- video poster for immediate loading
+- responsive mobile layout
