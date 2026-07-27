@@ -1,0 +1,111 @@
+.expertise-page {
+  min-height: 100vh;
+  margin: 0;
+  background: #050505;
+  overflow-x: hidden;
+}
+
+.expertise-inner {
+  opacity: 0;
+}
+
+.expertise-visual {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  background: #050505;
+}
+
+.expertise-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.expertise-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.expertise-hotspots a,
+.experience-link,
+.contact-cta {
+  position: absolute;
+  color: transparent;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.expertise-hotspots a {
+  top: 1.6%;
+  height: 2.5%;
+}
+
+.home-link { left: 27.6%; width: 4.4%; }
+.approach-link { left: 32.4%; width: 9.2%; }
+.diagnostics-link { left: 41.9%; width: 8.4%; }
+.solutions-link { left: 50.6%; width: 7.2%; }
+.expertise-link { left: 58%; width: 7.3%; }
+.about-link { left: 65.4%; width: 4.8%; }
+.insights-link { left: 70.4%; width: 6.8%; }
+
+.contact-link {
+  top: 1.1% !important;
+  left: 80%;
+  width: 18.1%;
+  height: 3.2% !important;
+}
+
+.experience-link {
+  left: 5.1%;
+  top: 31.8%;
+  width: 17.7%;
+  height: 3.2%;
+}
+
+.contact-cta {
+  left: 57.6%;
+  top: 94.1%;
+  width: 30.3%;
+  height: 3.1%;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .expertise-visual {
+    overflow: hidden;
+  }
+
+  .expertise-art {
+    width: 172%;
+    max-width: none;
+    transform: translateX(-21%);
+  }
+
+  .expertise-hotspots,
+  .experience-link,
+  .contact-cta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expertise-inner {
+    opacity: 1;
+    transform: none;
+  }
+}

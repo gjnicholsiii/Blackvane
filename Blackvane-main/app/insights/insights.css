@@ -1,0 +1,120 @@
+.insights-page {
+  min-height: 100vh;
+  margin: 0;
+  background: #050505;
+  overflow-x: hidden;
+}
+
+.insights-inner {
+  opacity: 0;
+}
+
+.insights-visual {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  background: #050505;
+}
+
+.insights-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.insights-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.insights-hotspots a,
+.latest-link,
+.subscribe-link,
+.contact-cta {
+  position: absolute;
+  color: transparent;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.insights-hotspots a {
+  top: 1.28%;
+  height: 2.55%;
+}
+
+.home-link { left: 24.7%; width: 4.5%; }
+.approach-link { left: 29.6%; width: 9.4%; }
+.diagnostics-link { left: 39.3%; width: 8.5%; }
+.solutions-link { left: 48.1%; width: 7.5%; }
+.expertise-link { left: 55.8%; width: 7.2%; }
+.about-link { left: 63.3%; width: 4.7%; }
+.insights-link { left: 68.2%; width: 6.4%; }
+
+.contact-link {
+  top: 0.9% !important;
+  left: 80.2%;
+  width: 17.6%;
+  height: 3.1% !important;
+}
+
+.latest-link {
+  left: 2.9%;
+  top: 28.4%;
+  width: 14.7%;
+  height: 3.4%;
+}
+
+.subscribe-link {
+  left: 74%;
+  top: 80.8%;
+  width: 18.8%;
+  height: 6.6%;
+}
+
+.contact-cta {
+  left: 73.8%;
+  top: 93.4%;
+  width: 22.5%;
+  height: 3.3%;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .insights-visual {
+    overflow: hidden;
+  }
+
+  .insights-art {
+    width: 176%;
+    max-width: none;
+    transform: translateX(-23%);
+  }
+
+  .insights-hotspots,
+  .latest-link,
+  .subscribe-link,
+  .contact-cta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .insights-inner {
+    opacity: 1;
+    transform: none;
+  }
+}

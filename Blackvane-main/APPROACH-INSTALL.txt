@@ -1,0 +1,1 @@
+Upload the app and public folders from this package to the repository root. Allow GitHub to replace matching folders. Vercel will deploy /approach automatically.
