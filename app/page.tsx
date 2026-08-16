@@ -46,35 +46,41 @@ export default function HomePage() {
         .set(".intro-center", { autoAlpha: 1 })
         .set(".intro-signal", { autoAlpha: 0 })
         .set(".intro-incision", { scaleY: 0, autoAlpha: 1, transformOrigin: "50% 50%" })
-        .set(".intro-approved-logo", { autoAlpha: 0, scale: 0.985 })
+        .set(".intro-logo-frame", { autoAlpha: 0, scale: 0.985 })
         .set(".intro-thesis", { autoAlpha: 0, y: 10 })
-        .to(".signal-revenue", { autoAlpha: 1, duration: 0.25 }, 0.55)
-        .to(".signal-revenue", { autoAlpha: 1, duration: 0.70 }, 0.80)
-        .to(".signal-revenue", { autoAlpha: 0, duration: 0.25 }, 1.50)
-        .to(".signal-retention", { autoAlpha: 1, duration: 0.25 }, 1.85)
-        .to(".signal-retention", { autoAlpha: 1, duration: 0.70 }, 2.10)
-        .to(".signal-retention", { autoAlpha: 0, duration: 0.25 }, 2.80)
-        .to(".signal-execution", { autoAlpha: 1, duration: 0.25 }, 3.15)
-        .to(".signal-execution", { autoAlpha: 1, duration: 0.70 }, 3.40)
-        .to(".signal-execution", { autoAlpha: 0, duration: 0.25 }, 4.10)
-        .to(".signal-exposure", { autoAlpha: 1, duration: 0.25 }, 4.45)
-        .to(".signal-exposure", { autoAlpha: 1, duration: 0.70 }, 4.70)
-        .to(".signal-exposure", { autoAlpha: 0, duration: 0.25 }, 5.40)
-        .to(".intro-incision", { scaleY: 1, duration: 0.85, ease: "power3.inOut" }, 5.75)
-        .to(".intro-approved-logo", { autoAlpha: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 6.15)
-        .to(".intro-incision", { autoAlpha: 0, duration: 0.45 }, 6.55)
-        .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.70, ease: "power2.out" }, 7.45)
-        .set(".homepage", { autoAlpha: 1 }, 8.70)
-        .to(".intro-approved-logo, .intro-thesis", { autoAlpha: 0, duration: 0.35 }, 8.70)
-        .to(".intro-panel-left", { xPercent: -101, duration: 1.10, ease: "power3.inOut" }, 9.05)
-        .to(".intro-panel-right", { xPercent: 101, duration: 1.10, ease: "power3.inOut" }, 9.05)
+
+        .to(".signal-revenue", { autoAlpha: 1, duration: 0.28 }, 0.55)
+        .to(".signal-revenue", { autoAlpha: 1, duration: 1.15 }, 0.83)
+        .to(".signal-revenue", { autoAlpha: 0, duration: 0.28 }, 1.98)
+
+        .to(".signal-retention", { autoAlpha: 1, duration: 0.28 }, 2.35)
+        .to(".signal-retention", { autoAlpha: 1, duration: 1.15 }, 2.63)
+        .to(".signal-retention", { autoAlpha: 0, duration: 0.28 }, 3.78)
+
+        .to(".signal-execution", { autoAlpha: 1, duration: 0.28 }, 4.15)
+        .to(".signal-execution", { autoAlpha: 1, duration: 1.15 }, 4.43)
+        .to(".signal-execution", { autoAlpha: 0, duration: 0.28 }, 5.58)
+
+        .to(".signal-exposure", { autoAlpha: 1, duration: 0.28 }, 5.95)
+        .to(".signal-exposure", { autoAlpha: 1, duration: 1.15 }, 6.23)
+        .to(".signal-exposure", { autoAlpha: 0, duration: 0.28 }, 7.38)
+
+        .to(".intro-incision", { scaleY: 1, duration: 0.9, ease: "power3.inOut" }, 7.75)
+        .to(".intro-logo-frame", { autoAlpha: 1, scale: 1, duration: 1.25, ease: "power2.out" }, 8.18)
+        .to(".intro-incision", { autoAlpha: 0, duration: 0.45 }, 8.65)
+        .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.78, ease: "power2.out" }, 9.65)
+
+        .set(".homepage", { autoAlpha: 1 }, 11.35)
+        .to(".intro-logo-frame, .intro-thesis", { autoAlpha: 0, duration: 0.42 }, 11.35)
+        .to(".intro-panel-left", { xPercent: -101, duration: 1.15, ease: "power3.inOut" }, 11.78)
+        .to(".intro-panel-right", { xPercent: 101, duration: 1.15, ease: "power3.inOut" }, 11.78)
         .fromTo(
           ".hero-copy > *",
           { opacity: 0, y: 18 },
           { opacity: 1, y: 0, duration: 0.85, stagger: 0.08, ease: "power2.out" },
-          9.28
+          12.02
         )
-        .set(".intro", { display: "none" }, 10.20);
+        .set(".intro", { display: "none" }, 13.0);
     }, root);
 
     return () => {
@@ -99,12 +105,32 @@ export default function HomePage() {
 
         <div className="intro-center">
           <div className="intro-incision" />
-          <img
-            className="intro-approved-logo"
-            src="/blackvane13-approved.svg"
-            alt=""
-            style={{ width: "min(620px, 82vw)", height: "auto", display: "block", objectFit: "contain" }}
-          />
+
+          <div
+            className="intro-logo-frame"
+            style={{
+              width: "min(720px, 88vw)",
+              aspectRatio: "3 / 2",
+              overflow: "hidden",
+              position: "relative",
+              flex: "0 0 auto",
+            }}
+          >
+            <img
+              className="intro-approved-logo"
+              src="/blackvane13-approved.svg"
+              alt=""
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "auto",
+                display: "block",
+                transform: "translateY(-6.5%)",
+              }}
+            />
+          </div>
+
           <div className="intro-thesis">Every organization tells the truth eventually.</div>
         </div>
       </section>
