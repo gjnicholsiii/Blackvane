@@ -113,7 +113,7 @@ export default function HomePage() {
             }}
           >
             <img
-              src="/blackvane13-approved-lockup-verified.jpg?v=72ea51a"
+              src="/blackvane13-approved-lockup.webp?v=825bbfc"
               alt="Blackvane 13"
               style={{
                 width: "100%",
