@@ -39,14 +39,19 @@ export default function HomePage() {
         return;
       }
 
+      // Explicit inline display override makes ?intro=1 replay even when
+      // the visitor's OS/browser has prefers-reduced-motion enabled.
+      gsap.set(".intro", { display: "flex", autoAlpha: 1 });
       window.sessionStorage.setItem("blackvane13-intro-seen", "1");
 
       const intro = gsap.timeline();
 
       intro
         .set(".homepage", { autoAlpha: 0 })
+        .set(".intro-panel", { xPercent: 0 })
+        .set(".intro-center", { autoAlpha: 1 })
         .set(".intro-signal", { autoAlpha: 0 })
-        .set(".intro-incision", { scaleY: 0, transformOrigin: "50% 50%" })
+        .set(".intro-incision", { scaleY: 0, autoAlpha: 1, transformOrigin: "50% 50%" })
         .set(".intro-mark-piece", { autoAlpha: 0, y: 8 })
         .set(".intro-wordmark, .intro-discipline, .intro-thesis", { autoAlpha: 0, y: 8 })
         .to(".signal-revenue", { autoAlpha: 1, duration: 0.12 }, 0.28)
