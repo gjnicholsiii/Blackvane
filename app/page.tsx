@@ -46,7 +46,7 @@ export default function HomePage() {
         .set(".intro-center", { autoAlpha: 1 })
         .set(".intro-signal", { autoAlpha: 0 })
         .set(".intro-incision", { scaleY: 0, autoAlpha: 1, transformOrigin: "50% 50%" })
-        .set(".intro-approved-logo", { autoAlpha: 0, scale: 0.975 })
+        .set(".intro-logo-stage", { autoAlpha: 0, scale: 0.975 })
         .set(".intro-thesis", { autoAlpha: 0, y: 10 })
 
         .to(".signal-revenue", { autoAlpha: 1, duration: 0.35 }, 0.70)
@@ -66,12 +66,12 @@ export default function HomePage() {
         .to(".signal-exposure", { autoAlpha: 0, duration: 0.35 }, 8.10)
 
         .to(".intro-incision", { scaleY: 1, duration: 1.0, ease: "power3.inOut" }, 8.55)
-        .to(".intro-approved-logo", { autoAlpha: 1, scale: 1, duration: 1.5, ease: "power2.out" }, 9.10)
+        .to(".intro-logo-stage", { autoAlpha: 1, scale: 1, duration: 1.5, ease: "power2.out" }, 9.10)
         .to(".intro-incision", { autoAlpha: 0, duration: 0.45 }, 9.65)
         .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.90, ease: "power2.out" }, 11.10)
 
         .set(".homepage", { autoAlpha: 1 }, 13.55)
-        .to(".intro-approved-logo, .intro-thesis", { autoAlpha: 0, duration: 0.45 }, 13.55)
+        .to(".intro-logo-stage, .intro-thesis", { autoAlpha: 0, duration: 0.45 }, 13.55)
         .to(".intro-panel-left", { xPercent: -101, duration: 1.25, ease: "power3.inOut" }, 13.95)
         .to(".intro-panel-right", { xPercent: 101, duration: 1.25, ease: "power3.inOut" }, 13.95)
         .fromTo(
@@ -105,12 +105,29 @@ export default function HomePage() {
 
         <div className="intro-center">
           <div className="intro-incision" />
-          <img
-            className="intro-approved-logo"
-            src="/blackvane13-lockup.svg?v=2"
-            alt=""
-            style={{ width: "min(760px, 88vw)", height: "auto", display: "block" }}
-          />
+          <div
+            className="intro-logo-stage"
+            style={{
+              width: "min(760px, 88vw)",
+              aspectRatio: "516 / 423",
+              overflow: "hidden",
+              position: "relative",
+              flex: "0 0 auto",
+            }}
+          >
+            <img
+              src="/blackvane13-approved.svg?v=selfcontained3"
+              alt=""
+              style={{
+                position: "absolute",
+                width: "116.28%",
+                height: "auto",
+                left: "-8.14%",
+                top: "-17.73%",
+                display: "block",
+              }}
+            />
+          </div>
           <div className="intro-thesis">Every organization tells the truth eventually.</div>
         </div>
       </section>
