@@ -39,8 +39,6 @@ export default function HomePage() {
         return;
       }
 
-      // Explicit inline display override makes ?intro=1 replay even when
-      // the visitor's OS/browser has prefers-reduced-motion enabled.
       gsap.set(".intro", { display: "flex", autoAlpha: 1 });
       window.sessionStorage.setItem("blackvane13-intro-seen", "1");
 
@@ -52,33 +50,41 @@ export default function HomePage() {
         .set(".intro-center", { autoAlpha: 1 })
         .set(".intro-signal", { autoAlpha: 0 })
         .set(".intro-incision", { scaleY: 0, autoAlpha: 1, transformOrigin: "50% 50%" })
-        .set(".intro-mark-piece", { autoAlpha: 0, y: 8 })
-        .set(".intro-wordmark, .intro-discipline, .intro-thesis", { autoAlpha: 0, y: 8 })
-        .to(".signal-revenue", { autoAlpha: 1, duration: 0.12 }, 0.28)
-        .to(".signal-revenue", { autoAlpha: 0, duration: 0.16 }, 0.56)
-        .to(".signal-retention", { autoAlpha: 1, duration: 0.12 }, 0.72)
-        .to(".signal-retention", { autoAlpha: 0, duration: 0.16 }, 1.0)
-        .to(".signal-execution", { autoAlpha: 1, duration: 0.12 }, 1.12)
-        .to(".signal-execution", { autoAlpha: 0, duration: 0.16 }, 1.4)
-        .to(".signal-exposure", { autoAlpha: 1, duration: 0.12 }, 1.52)
-        .to(".signal-exposure", { autoAlpha: 0, duration: 0.16 }, 1.8)
-        .to(".intro-incision", { scaleY: 1, duration: 0.6, ease: "power3.inOut" }, 1.86)
-        .to(".intro-mark-piece", { autoAlpha: 1, y: 0, duration: 0.42, stagger: 0.06, ease: "power2.out" }, 2.28)
-        .to(".intro-incision", { autoAlpha: 0, duration: 0.22 }, 2.58)
-        .to(".intro-wordmark", { autoAlpha: 1, y: 0, duration: 0.55, ease: "power2.out" }, 2.72)
-        .to(".intro-discipline", { autoAlpha: 1, y: 0, duration: 0.4 }, 3.12)
-        .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.55, ease: "power2.out" }, 3.48)
-        .set(".homepage", { autoAlpha: 1 }, 4.5)
-        .to(".intro-center", { autoAlpha: 0, duration: 0.32 }, 4.52)
-        .to(".intro-panel-left", { xPercent: -101, duration: 0.9, ease: "power3.inOut" }, 4.7)
-        .to(".intro-panel-right", { xPercent: 101, duration: 0.9, ease: "power3.inOut" }, 4.7)
+        .set(".intro-approved-logo", { autoAlpha: 0, scale: 0.985 })
+        .set(".intro-thesis", { autoAlpha: 0, y: 10 })
+
+        .to(".signal-revenue", { autoAlpha: 1, duration: 0.25 }, 0.55)
+        .to(".signal-revenue", { autoAlpha: 1, duration: 0.70 }, 0.80)
+        .to(".signal-revenue", { autoAlpha: 0, duration: 0.25 }, 1.50)
+
+        .to(".signal-retention", { autoAlpha: 1, duration: 0.25 }, 1.85)
+        .to(".signal-retention", { autoAlpha: 1, duration: 0.70 }, 2.10)
+        .to(".signal-retention", { autoAlpha: 0, duration: 0.25 }, 2.80)
+
+        .to(".signal-execution", { autoAlpha: 1, duration: 0.25 }, 3.15)
+        .to(".signal-execution", { autoAlpha: 1, duration: 0.70 }, 3.40)
+        .to(".signal-execution", { autoAlpha: 0, duration: 0.25 }, 4.10)
+
+        .to(".signal-exposure", { autoAlpha: 1, duration: 0.25 }, 4.45)
+        .to(".signal-exposure", { autoAlpha: 1, duration: 0.70 }, 4.70)
+        .to(".signal-exposure", { autoAlpha: 0, duration: 0.25 }, 5.40)
+
+        .to(".intro-incision", { scaleY: 1, duration: 0.85, ease: "power3.inOut" }, 5.75)
+        .to(".intro-approved-logo", { autoAlpha: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 6.15)
+        .to(".intro-incision", { autoAlpha: 0, duration: 0.45 }, 6.55)
+        .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.70, ease: "power2.out" }, 7.45)
+
+        .set(".homepage", { autoAlpha: 1 }, 8.70)
+        .to(".intro-approved-logo, .intro-thesis", { autoAlpha: 0, duration: 0.35 }, 8.70)
+        .to(".intro-panel-left", { xPercent: -101, duration: 1.10, ease: "power3.inOut" }, 9.05)
+        .to(".intro-panel-right", { xPercent: 101, duration: 1.10, ease: "power3.inOut" }, 9.05)
         .fromTo(
           ".hero-copy > *",
           { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: "power2.out" },
-          4.92
+          { opacity: 1, y: 0, duration: 0.85, stagger: 0.08, ease: "power2.out" },
+          9.28
         )
-        .set(".intro", { display: "none" }, 5.62);
+        .set(".intro", { display: "none" }, 10.20);
     }, root);
 
     return () => {
@@ -103,16 +109,7 @@ export default function HomePage() {
 
         <div className="intro-center">
           <div className="intro-incision" />
-          <div className="intro-mark" aria-hidden="true">
-            <span className="intro-mark-piece mark-left" />
-            <span className="intro-mark-piece mark-right mark-right-one" />
-            <span className="intro-mark-piece mark-right mark-right-two" />
-            <span className="intro-mark-piece mark-right mark-right-three" />
-          </div>
-          <div className="intro-wordmark">
-            <span>BLACKVANE</span><sup>13</sup>
-          </div>
-          <div className="intro-discipline">ORGANIZATIONAL DIAGNOSTICS</div>
+          <img className="intro-approved-logo" src="/blackvane13-approved.svg" alt="" />
           <div className="intro-thesis">Every organization tells the truth eventually.</div>
         </div>
       </section>
