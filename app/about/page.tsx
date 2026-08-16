@@ -43,28 +43,6 @@ export default function AboutPage() {
 
           <a className="expertise-cta" href="/expertise" aria-label="View expertise" />
           <a className="contact-cta" href="/contact" aria-label="Start a confidential conversation" />
-
-          <div className="approved-copy-overlay" aria-hidden="true">
-            <div className="hero-copy">
-              <p className="eyebrow">About Blackvane</p>
-              <h1>I look for what<br />others overlook.</h1>
-              <div className="rule" />
-              <p>
-                Organizations reveal themselves through what they reward, excuse,
-                repeat, and refuse to examine.
-              </p>
-              <p>Blackvane reads those signals clearly.</p>
-              <p>
-                I bring an outsider&apos;s perspective and an operator&apos;s experience
-                to leadership teams facing stalled growth, weak execution,
-                cultural decay, and decisions made from an incomplete picture.
-              </p>
-            </div>
-
-            <div className="closing-copy">
-              <h2>Clarity is rare.<br />Courage is rarer.<br />Results are everything.</h2>
-            </div>
-          </div>
         </section>
       </div>
 
