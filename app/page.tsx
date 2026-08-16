@@ -108,22 +108,16 @@ export default function HomePage() {
           <div
             className="intro-logo-stage"
             style={{
-              width: "min(760px, 88vw)",
-              aspectRatio: "516 / 423",
-              overflow: "hidden",
-              position: "relative",
+              width: "min(620px, 82vw)",
               flex: "0 0 auto",
             }}
           >
             <img
-              src="/blackvane13-approved.svg?v=selfcontained3"
-              alt=""
+              src="/blackvane13-approved-lockup.jpg?v=61c545b"
+              alt="Blackvane 13"
               style={{
-                position: "absolute",
-                width: "116.28%",
+                width: "100%",
                 height: "auto",
-                left: "-8.14%",
-                top: "-17.73%",
                 display: "block",
               }}
             />
