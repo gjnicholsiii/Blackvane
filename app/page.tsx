@@ -8,11 +8,7 @@ export default function HomePage() {
   const root = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.35,
-      smoothWheel: true,
-      wheelMultiplier: 0.85,
-    });
+    const lenis = new Lenis({ duration: 1.35, smoothWheel: true, wheelMultiplier: 0.85 });
 
     let rafId = 0;
     const raf = (time: number) => {
@@ -52,28 +48,22 @@ export default function HomePage() {
         .set(".intro-incision", { scaleY: 0, autoAlpha: 1, transformOrigin: "50% 50%" })
         .set(".intro-approved-logo", { autoAlpha: 0, scale: 0.985 })
         .set(".intro-thesis", { autoAlpha: 0, y: 10 })
-
         .to(".signal-revenue", { autoAlpha: 1, duration: 0.25 }, 0.55)
         .to(".signal-revenue", { autoAlpha: 1, duration: 0.70 }, 0.80)
         .to(".signal-revenue", { autoAlpha: 0, duration: 0.25 }, 1.50)
-
         .to(".signal-retention", { autoAlpha: 1, duration: 0.25 }, 1.85)
         .to(".signal-retention", { autoAlpha: 1, duration: 0.70 }, 2.10)
         .to(".signal-retention", { autoAlpha: 0, duration: 0.25 }, 2.80)
-
         .to(".signal-execution", { autoAlpha: 1, duration: 0.25 }, 3.15)
         .to(".signal-execution", { autoAlpha: 1, duration: 0.70 }, 3.40)
         .to(".signal-execution", { autoAlpha: 0, duration: 0.25 }, 4.10)
-
         .to(".signal-exposure", { autoAlpha: 1, duration: 0.25 }, 4.45)
         .to(".signal-exposure", { autoAlpha: 1, duration: 0.70 }, 4.70)
         .to(".signal-exposure", { autoAlpha: 0, duration: 0.25 }, 5.40)
-
         .to(".intro-incision", { scaleY: 1, duration: 0.85, ease: "power3.inOut" }, 5.75)
         .to(".intro-approved-logo", { autoAlpha: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 6.15)
         .to(".intro-incision", { autoAlpha: 0, duration: 0.45 }, 6.55)
         .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.70, ease: "power2.out" }, 7.45)
-
         .set(".homepage", { autoAlpha: 1 }, 8.70)
         .to(".intro-approved-logo, .intro-thesis", { autoAlpha: 0, duration: 0.35 }, 8.70)
         .to(".intro-panel-left", { xPercent: -101, duration: 1.10, ease: "power3.inOut" }, 9.05)
@@ -109,7 +99,12 @@ export default function HomePage() {
 
         <div className="intro-center">
           <div className="intro-incision" />
-          <img className="intro-approved-logo" src="/blackvane13-approved.svg" alt="" />
+          <img
+            className="intro-approved-logo"
+            src="/blackvane13-approved.svg"
+            alt=""
+            style={{ width: "min(620px, 82vw)", height: "auto", display: "block", objectFit: "contain" }}
+          />
           <div className="intro-thesis">Every organization tells the truth eventually.</div>
         </div>
       </section>
@@ -119,7 +114,6 @@ export default function HomePage() {
           <a className="home-wordmark" href="/" aria-label="Blackvane 13 home">
             BLACKVANE <span>13</span>
           </a>
-
           <nav aria-label="Primary navigation">
             <a href="/approach">Approach</a>
             <a href="/diagnostics">Diagnostics</a>
@@ -128,25 +122,14 @@ export default function HomePage() {
             <a href="/about">About</a>
             <a href="/insights">Insights</a>
           </nav>
-
           <a className="header-talk" href="/contact">Let&apos;s Talk</a>
         </header>
 
         <section className="video-hero">
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/blackvane-hero-poster.jpg"
-          >
+          <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster="/blackvane-hero-poster.jpg">
             <source src="/blackvane-hero.mp4" type="video/mp4" />
           </video>
-
           <div className="hero-shade" />
-
           <div className="hero-copy">
             <p className="hero-eyebrow">Organizational Diagnostics</p>
             <h1>See clearly.<br />Lead decisively.</h1>
@@ -159,10 +142,7 @@ export default function HomePage() {
               <a className="secondary-cta" href="/contact">Confidential Conversation</a>
             </div>
           </div>
-
-          <a className="hero-scroll" href="#reveal" aria-label="Continue">
-            <span />
-          </a>
+          <a className="hero-scroll" href="#reveal" aria-label="Continue"><span /></a>
         </section>
 
         <section id="reveal" className="approved-section">
@@ -173,9 +153,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="approved-section">
-          <img src="/pattern-approved.jpg" alt="" />
-        </section>
+        <section className="approved-section"><img src="/pattern-approved.jpg" alt="" /></section>
 
         <section className="approved-section">
           <img src="/finding-approved.jpg" alt="" />
