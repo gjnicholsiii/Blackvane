@@ -45,18 +45,18 @@
   height: 2.55%;
 }
 
-.home-link { left: 24.7%; width: 4.5%; }
-.approach-link { left: 29.6%; width: 9.4%; }
-.diagnostics-link { left: 39.3%; width: 8.5%; }
-.solutions-link { left: 48.1%; width: 7.5%; }
-.expertise-link { left: 55.8%; width: 7.2%; }
-.about-link { left: 63.3%; width: 4.7%; }
-.insights-link { left: 68.2%; width: 6.4%; }
+.home-link { left: 27.2%; width: 4.5%; }
+.approach-link { left: 32.2%; width: 9.2%; }
+.diagnostics-link { left: 41.8%; width: 8.4%; }
+.solutions-link { left: 50.4%; width: 7.4%; }
+.expertise-link { left: 58%; width: 7.2%; }
+.about-link { left: 65.2%; width: 4.7%; }
+.insights-link { left: 70.2%; width: 6.8%; }
 
 .contact-link {
   top: 0.9% !important;
-  left: 80.2%;
-  width: 17.6%;
+  left: 79.1%;
+  width: 18.2%;
   height: 3.1% !important;
 }
 
