@@ -46,41 +46,41 @@ export default function HomePage() {
         .set(".intro-center", { autoAlpha: 1 })
         .set(".intro-signal", { autoAlpha: 0 })
         .set(".intro-incision", { scaleY: 0, autoAlpha: 1, transformOrigin: "50% 50%" })
-        .set(".intro-logo-frame", { autoAlpha: 0, scale: 0.985 })
+        .set(".intro-approved-logo", { autoAlpha: 0, scale: 0.975 })
         .set(".intro-thesis", { autoAlpha: 0, y: 10 })
 
-        .to(".signal-revenue", { autoAlpha: 1, duration: 0.28 }, 0.55)
-        .to(".signal-revenue", { autoAlpha: 1, duration: 1.15 }, 0.83)
-        .to(".signal-revenue", { autoAlpha: 0, duration: 0.28 }, 1.98)
+        .to(".signal-revenue", { autoAlpha: 1, duration: 0.35 }, 0.70)
+        .to(".signal-revenue", { autoAlpha: 1, duration: 1.20 }, 1.05)
+        .to(".signal-revenue", { autoAlpha: 0, duration: 0.35 }, 2.25)
 
-        .to(".signal-retention", { autoAlpha: 1, duration: 0.28 }, 2.35)
-        .to(".signal-retention", { autoAlpha: 1, duration: 1.15 }, 2.63)
-        .to(".signal-retention", { autoAlpha: 0, duration: 0.28 }, 3.78)
+        .to(".signal-retention", { autoAlpha: 1, duration: 0.35 }, 2.65)
+        .to(".signal-retention", { autoAlpha: 1, duration: 1.20 }, 3.00)
+        .to(".signal-retention", { autoAlpha: 0, duration: 0.35 }, 4.20)
 
-        .to(".signal-execution", { autoAlpha: 1, duration: 0.28 }, 4.15)
-        .to(".signal-execution", { autoAlpha: 1, duration: 1.15 }, 4.43)
-        .to(".signal-execution", { autoAlpha: 0, duration: 0.28 }, 5.58)
+        .to(".signal-execution", { autoAlpha: 1, duration: 0.35 }, 4.60)
+        .to(".signal-execution", { autoAlpha: 1, duration: 1.20 }, 4.95)
+        .to(".signal-execution", { autoAlpha: 0, duration: 0.35 }, 6.15)
 
-        .to(".signal-exposure", { autoAlpha: 1, duration: 0.28 }, 5.95)
-        .to(".signal-exposure", { autoAlpha: 1, duration: 1.15 }, 6.23)
-        .to(".signal-exposure", { autoAlpha: 0, duration: 0.28 }, 7.38)
+        .to(".signal-exposure", { autoAlpha: 1, duration: 0.35 }, 6.55)
+        .to(".signal-exposure", { autoAlpha: 1, duration: 1.20 }, 6.90)
+        .to(".signal-exposure", { autoAlpha: 0, duration: 0.35 }, 8.10)
 
-        .to(".intro-incision", { scaleY: 1, duration: 0.9, ease: "power3.inOut" }, 7.75)
-        .to(".intro-logo-frame", { autoAlpha: 1, scale: 1, duration: 1.25, ease: "power2.out" }, 8.18)
-        .to(".intro-incision", { autoAlpha: 0, duration: 0.45 }, 8.65)
-        .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.78, ease: "power2.out" }, 9.65)
+        .to(".intro-incision", { scaleY: 1, duration: 1.0, ease: "power3.inOut" }, 8.55)
+        .to(".intro-approved-logo", { autoAlpha: 1, scale: 1, duration: 1.5, ease: "power2.out" }, 9.10)
+        .to(".intro-incision", { autoAlpha: 0, duration: 0.45 }, 9.65)
+        .to(".intro-thesis", { autoAlpha: 1, y: 0, duration: 0.90, ease: "power2.out" }, 11.10)
 
-        .set(".homepage", { autoAlpha: 1 }, 11.35)
-        .to(".intro-logo-frame, .intro-thesis", { autoAlpha: 0, duration: 0.42 }, 11.35)
-        .to(".intro-panel-left", { xPercent: -101, duration: 1.15, ease: "power3.inOut" }, 11.78)
-        .to(".intro-panel-right", { xPercent: 101, duration: 1.15, ease: "power3.inOut" }, 11.78)
+        .set(".homepage", { autoAlpha: 1 }, 13.55)
+        .to(".intro-approved-logo, .intro-thesis", { autoAlpha: 0, duration: 0.45 }, 13.55)
+        .to(".intro-panel-left", { xPercent: -101, duration: 1.25, ease: "power3.inOut" }, 13.95)
+        .to(".intro-panel-right", { xPercent: 101, duration: 1.25, ease: "power3.inOut" }, 13.95)
         .fromTo(
           ".hero-copy > *",
           { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 0.85, stagger: 0.08, ease: "power2.out" },
-          12.02
+          { opacity: 1, y: 0, duration: 0.90, stagger: 0.08, ease: "power2.out" },
+          14.20
         )
-        .set(".intro", { display: "none" }, 13.0);
+        .set(".intro", { display: "none" }, 15.35);
     }, root);
 
     return () => {
@@ -105,32 +105,12 @@ export default function HomePage() {
 
         <div className="intro-center">
           <div className="intro-incision" />
-
-          <div
-            className="intro-logo-frame"
-            style={{
-              width: "min(720px, 88vw)",
-              aspectRatio: "3 / 2",
-              overflow: "hidden",
-              position: "relative",
-              flex: "0 0 auto",
-            }}
-          >
-            <img
-              className="intro-approved-logo"
-              src="/blackvane13-approved.svg"
-              alt=""
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "auto",
-                display: "block",
-                transform: "translateY(-6.5%)",
-              }}
-            />
-          </div>
-
+          <img
+            className="intro-approved-logo"
+            src="/blackvane13-lockup.svg?v=2"
+            alt=""
+            style={{ width: "min(760px, 88vw)", height: "auto", display: "block" }}
+          />
           <div className="intro-thesis">Every organization tells the truth eventually.</div>
         </div>
       </section>
