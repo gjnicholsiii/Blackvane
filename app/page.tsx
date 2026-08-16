@@ -108,12 +108,12 @@ export default function HomePage() {
           <div
             className="intro-logo-stage"
             style={{
-              width: "min(620px, 82vw)",
+              width: "min(500px, 78vw)",
               flex: "0 0 auto",
             }}
           >
             <img
-              src="/blackvane13-approved-lockup.jpg?v=61c545b"
+              src="/blackvane13-approved-lockup-verified.jpg?v=72ea51a"
               alt="Blackvane 13"
               style={{
                 width: "100%",
