@@ -16,7 +16,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <a
+          className="global-phone"
+          href="tel:+18884881961"
+          aria-label="Call Blackvane 13 at 888 488 1961"
+        >
+          <span>CALL</span>
+          <strong>(888) 488-1961</strong>
+        </a>
+      </body>
     </html>
   );
 }
