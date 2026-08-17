@@ -127,8 +127,8 @@ export default function HomePage() {
       </section>
 
       <div className="homepage">
-        <header className="home-header">
-          <a className="home-wordmark" href="/" aria-label="Blackvane 13 home">
+        <header className="bv-site-header bv-site-header-home">
+          <a className="bv-site-wordmark" href="/" aria-label="Blackvane 13 home">
             BLACKVANE <span>13</span>
           </a>
           <nav aria-label="Primary navigation">
@@ -139,7 +139,7 @@ export default function HomePage() {
             <a href="/about">About</a>
             <a href="/insights">Insights</a>
           </nav>
-          <a className="header-talk" href="mailto:joe@blackvane13.com">Let&apos;s Talk</a>
+          <a className="bv-site-talk" href="mailto:joe@blackvane13.com">Let&apos;s Talk</a>
         </header>
 
         <section className="video-hero">
