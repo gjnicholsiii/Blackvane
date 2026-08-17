@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./editorial.css";
+import SiteHeader from "./SiteHeader";
 
 export const metadata: Metadata = {
   title: "Blackvane | See Clearly. Lead Decisively.",
@@ -17,6 +19,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <SiteHeader />
         {children}
         <a
           className="global-phone"
