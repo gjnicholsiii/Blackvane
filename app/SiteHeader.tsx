@@ -5,7 +5,9 @@ import { usePathname } from "next/navigation";
 export default function SiteHeader() {
   const pathname = usePathname();
 
-  if (pathname === "/" || pathname === "/solutions") return null;
+  // The homepage renders the same header inside its animated shell so it stays
+  // hidden during the opening sequence. Every other route uses this instance.
+  if (pathname === "/") return null;
 
   return (
     <header className="bv-site-header">
