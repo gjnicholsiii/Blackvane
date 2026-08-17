@@ -9,6 +9,7 @@
 }
 
 .bv-site-wordmark-distressed {
+  justify-self: start;
   display: inline-flex;
   align-items: center;
   gap: 11px;
@@ -18,11 +19,8 @@
   line-height: 1;
 }
 
-/* Reset the legacy .bv-site-wordmark span superscript rule for this mark. */
-.bv-site-wordmark-distressed .bv-distressed-name,
-.bv-site-wordmark-distressed .bv-distressed-sizer,
-.bv-site-wordmark-distressed .bv-distressed-slice {
-  margin-left: 0;
+.bv-distressed-name {
+  display: inline-block;
   color: #f0ece5;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 27px;
@@ -30,54 +28,35 @@
   font-weight: 700;
   letter-spacing: .145em;
   white-space: nowrap;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 38%,
+    transparent 38%,
+    transparent 42%,
+    #000 42%,
+    #000 64%,
+    transparent 64%,
+    transparent 68%,
+    #000 68%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 38%,
+    transparent 38%,
+    transparent 42%,
+    #000 42%,
+    #000 64%,
+    transparent 64%,
+    transparent 68%,
+    #000 68%,
+    #000 100%
+  );
 }
 
-.bv-site-wordmark-distressed .bv-distressed-name {
-  position: relative;
-  top: 0;
-  display: inline-block;
-}
-
-.bv-site-wordmark-distressed .bv-distressed-sizer {
-  position: static;
-  top: 0;
-  display: inline-block;
-  visibility: hidden;
-}
-
-.bv-site-wordmark-distressed .bv-distressed-slice {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  text-shadow: 0 0 .01px currentColor;
-  pointer-events: none;
-}
-
-.bv-site-wordmark-distressed .bv-slice-top {
-  clip-path: inset(0 0 67% 0);
-  transform: translateX(-1px);
-}
-
-.bv-site-wordmark-distressed .bv-slice-mid {
-  clip-path: inset(30% 0 44% 0);
-  transform: translateX(2px);
-}
-
-.bv-site-wordmark-distressed .bv-slice-low {
-  clip-path: inset(55% 0 21% 0);
-  transform: translateX(-2px);
-}
-
-.bv-site-wordmark-distressed .bv-slice-base {
-  clip-path: inset(78% 0 0 0);
-  transform: translateX(1px);
-}
-
-.bv-site-wordmark-distressed .bv-wordmark-13 {
-  position: relative;
-  top: 0;
-  margin-left: 0;
+.bv-wordmark-13 {
   color: #c6a06a;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 19px;
@@ -141,9 +120,7 @@
 }
 
 @media (max-width: 1180px) {
-  .bv-site-wordmark-distressed .bv-distressed-name,
-  .bv-site-wordmark-distressed .bv-distressed-sizer,
-  .bv-site-wordmark-distressed .bv-distressed-slice {
+  .bv-distressed-name {
     font-size: 23px;
     letter-spacing: .12em;
   }
@@ -153,7 +130,7 @@
     gap: 8px;
   }
 
-  .bv-site-wordmark-distressed .bv-wordmark-13 {
+  .bv-wordmark-13 {
     font-size: 17px;
   }
 }
@@ -187,14 +164,12 @@
     gap: 6px;
   }
 
-  .bv-site-wordmark-distressed .bv-distressed-name,
-  .bv-site-wordmark-distressed .bv-distressed-sizer,
-  .bv-site-wordmark-distressed .bv-distressed-slice {
+  .bv-distressed-name {
     font-size: 18px;
     letter-spacing: .105em;
   }
 
-  .bv-site-wordmark-distressed .bv-wordmark-13 {
+  .bv-wordmark-13 {
     font-size: 14px;
   }
 }
