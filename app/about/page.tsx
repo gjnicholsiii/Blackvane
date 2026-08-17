@@ -20,6 +20,15 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="bv-image-band">
+        <div className="bv-image-band-media" style={{ backgroundImage: "url('/solutions/management-topography.jpg')" }} />
+        <div className="bv-image-band-copy">
+          <p className="bv-kicker">Outside the Assumptions</p>
+          <h2>The organization is always leaving evidence.</h2>
+          <p>The advantage of the outsider is distance. The advantage of the operator is knowing which signals matter once you see them.</p>
+        </div>
+      </section>
+
       <section className="bv-section">
         <div className="bv-section-head">
           <h2>Operator&apos;s experience.<br />Outsider&apos;s view.</h2>
