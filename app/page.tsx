@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Lenis from "lenis";
+import SiteHeader from "./SiteHeader";
 
 export default function HomePage() {
   const root = useRef<HTMLElement>(null);
@@ -127,27 +128,7 @@ export default function HomePage() {
       </section>
 
       <div className="homepage">
-        <header
-          className="bv-site-header"
-          style={{
-            position: "absolute",
-            inset: "0 0 auto",
-            background: "linear-gradient(180deg, rgba(0,0,0,.88), rgba(0,0,0,.58), transparent)",
-          }}
-        >
-          <a className="bv-site-wordmark" href="/" aria-label="Blackvane 13 home">
-            BLACKVANE <span>13</span>
-          </a>
-          <nav aria-label="Primary navigation">
-            <a href="/approach">Approach</a>
-            <a href="/diagnostics">Diagnostics</a>
-            <a href="/solutions">Solutions</a>
-            <a href="/expertise">Expertise</a>
-            <a href="/about">About</a>
-            <a href="/insights">Insights</a>
-          </nav>
-          <a className="bv-site-talk" href="mailto:joe@blackvane13.com">Let&apos;s Talk</a>
-        </header>
+        <SiteHeader embeddedHome />
 
         <section className="video-hero">
           <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster="/blackvane-hero-poster.jpg">
