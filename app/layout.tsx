@@ -5,7 +5,7 @@ import "./editorial-images.css";
 import SiteHeader from "./SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Blackvane | See Clearly. Lead Decisively.",
+  title: "Blackvane 13 | See Clearly. Lead Decisively.",
   description: "Executive organizational diagnostics for leaders who need the truth.",
 };
 
