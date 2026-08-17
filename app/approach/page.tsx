@@ -31,7 +31,7 @@ export default function ApproachPage() {
           <a className="expertise-link" href="/expertise">Expertise</a>
           <a className="about-link" href="/about">About</a>
           <a className="insights-link" href="/insights">Insights</a>
-          <a className="contact-link" href="/contact">Confidential Conversation</a>
+          <a className="contact-link" href="mailto:joe@blackvane13.com">Confidential Conversation</a>
         </nav>
       </div>
 
