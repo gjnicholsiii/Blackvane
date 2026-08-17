@@ -11,15 +11,19 @@
 .bv-site-wordmark-distressed {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   min-width: 248px;
   color: #f0ece5;
   text-decoration: none;
+  line-height: 1;
 }
 
-.bv-distressed-name {
-  position: relative;
-  display: inline-block;
+/* Reset the legacy .bv-site-wordmark span superscript rule for this mark. */
+.bv-site-wordmark-distressed .bv-distressed-name,
+.bv-site-wordmark-distressed .bv-distressed-sizer,
+.bv-site-wordmark-distressed .bv-distressed-slice {
+  margin-left: 0;
+  color: #f0ece5;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 27px;
   line-height: 1;
@@ -28,43 +32,52 @@
   white-space: nowrap;
 }
 
-.bv-distressed-sizer {
-  visibility: hidden;
-  white-space: nowrap;
+.bv-site-wordmark-distressed .bv-distressed-name {
+  position: relative;
+  top: 0;
+  display: inline-block;
 }
 
-.bv-distressed-slice {
+.bv-site-wordmark-distressed .bv-distressed-sizer {
+  position: static;
+  top: 0;
+  display: inline-block;
+  visibility: hidden;
+}
+
+.bv-site-wordmark-distressed .bv-distressed-slice {
   position: absolute;
-  inset: 0 auto auto 0;
-  white-space: nowrap;
-  color: #f0ece5;
+  top: 0;
+  left: 0;
+  display: block;
   text-shadow: 0 0 .01px currentColor;
   pointer-events: none;
 }
 
-.bv-slice-top {
-  clip-path: inset(0 0 68% 0);
+.bv-site-wordmark-distressed .bv-slice-top {
+  clip-path: inset(0 0 67% 0);
   transform: translateX(-1px);
 }
 
-.bv-slice-mid {
-  clip-path: inset(31% 0 43% 0);
+.bv-site-wordmark-distressed .bv-slice-mid {
+  clip-path: inset(30% 0 44% 0);
   transform: translateX(2px);
 }
 
-.bv-slice-low {
-  clip-path: inset(56% 0 20% 0);
+.bv-site-wordmark-distressed .bv-slice-low {
+  clip-path: inset(55% 0 21% 0);
   transform: translateX(-2px);
 }
 
-.bv-slice-base {
-  clip-path: inset(79% 0 0 0);
+.bv-site-wordmark-distressed .bv-slice-base {
+  clip-path: inset(78% 0 0 0);
   transform: translateX(1px);
 }
 
-.bv-wordmark-13 {
+.bv-site-wordmark-distressed .bv-wordmark-13 {
   position: relative;
-  top: -1px;
+  top: 0;
+  margin-left: 0;
   color: #c6a06a;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 19px;
@@ -128,7 +141,9 @@
 }
 
 @media (max-width: 1180px) {
-  .bv-distressed-name {
+  .bv-site-wordmark-distressed .bv-distressed-name,
+  .bv-site-wordmark-distressed .bv-distressed-sizer,
+  .bv-site-wordmark-distressed .bv-distressed-slice {
     font-size: 23px;
     letter-spacing: .12em;
   }
@@ -138,7 +153,7 @@
     gap: 8px;
   }
 
-  .bv-wordmark-13 {
+  .bv-site-wordmark-distressed .bv-wordmark-13 {
     font-size: 17px;
   }
 }
@@ -172,12 +187,14 @@
     gap: 6px;
   }
 
-  .bv-distressed-name {
+  .bv-site-wordmark-distressed .bv-distressed-name,
+  .bv-site-wordmark-distressed .bv-distressed-sizer,
+  .bv-site-wordmark-distressed .bv-distressed-slice {
     font-size: 18px;
     letter-spacing: .105em;
   }
 
-  .bv-wordmark-13 {
+  .bv-site-wordmark-distressed .bv-wordmark-13 {
     font-size: 14px;
   }
 }
