@@ -17,17 +17,24 @@ export default function DiagnosticsPage() {
             Blackvane 13 examines the signals leadership rarely gets to see together and turns them into one clear finding: what is happening, why it is happening, and what deserves action first.
           </p>
         </div>
-        <div className="bv-hero-side">
-          Revenue.<br />Retention.<br />Execution.<br />Strategy.<br />Exposure.
+        <div className="bv-hero-media" style={{ backgroundImage: "url('/solutions/sales-compass.jpg')" }}>
+          <div className="bv-media-caption">Revenue. Retention. Execution. Strategy. Exposure.</div>
         </div>
+      </section>
+
+      <section className="bv-image-band">
+        <div className="bv-image-band-copy">
+          <p className="bv-kicker">The Read</p>
+          <h2>The organization beneath the story.</h2>
+          <p>Performance leaves evidence. Incentives, decisions, recurring behaviors, reporting habits, and operating friction form patterns. We read those patterns together.</p>
+        </div>
+        <div className="bv-image-band-media" style={{ backgroundImage: "url('/solutions/consulting-turbine.jpg')" }} />
       </section>
 
       <section className="bv-section">
         <div className="bv-section-head">
-          <h2>The organization<br />beneath the story.</h2>
-          <p>
-            Performance leaves evidence. Incentives, decisions, recurring behaviors, reporting habits, and operating friction form patterns. We read those patterns together.
-          </p>
+          <h2>Five areas.<br />One picture.</h2>
+          <p>Each diagnostic area is examined separately, then read together. That is where isolated symptoms become an organizational pattern.</p>
         </div>
 
         <div className="bv-grid">
@@ -38,6 +45,12 @@ export default function DiagnosticsPage() {
               <p>{copy}</p>
             </article>
           ))}
+        </div>
+
+        <div className="bv-visual-grid" aria-hidden="true">
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/sales-compass.jpg')" }}><span>Signal</span></div>
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/management-topography.jpg')" }}><span>Pattern</span></div>
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/consulting-turbine.jpg')" }}><span>Finding</span></div>
         </div>
       </section>
 
