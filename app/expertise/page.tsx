@@ -38,11 +38,11 @@ export default function ExpertisePage() {
             <a className="expertise-link" href="/expertise">Expertise</a>
             <a className="about-link" href="/about">About</a>
             <a className="insights-link" href="/insights">Insights</a>
-            <a className="contact-link" href="/contact">Confidential Conversation</a>
+            <a className="contact-link" href="mailto:joe@blackvane13.com">Confidential Conversation</a>
           </nav>
 
           <a className="experience-link" href="#experience" aria-label="View our experience" />
-          <a className="contact-cta" href="/contact" aria-label="Start a confidential conversation" />
+          <a className="contact-cta" href="mailto:joe@blackvane13.com" aria-label="Start a confidential conversation" />
         </section>
       </div>
 
