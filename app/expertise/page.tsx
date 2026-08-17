@@ -18,17 +18,24 @@ export default function ExpertisePage() {
             Blackvane 13 brings an operator&apos;s view to organizational performance. Sales, operations, leadership, execution, and the decisions that connect them.
           </p>
         </div>
-        <div className="bv-hero-side">
-          Operator perspective.<br />Commercial discipline.<br />Organizational judgment.<br />Executive focus.
+        <div className="bv-hero-media" style={{ backgroundImage: "url('/solutions/consulting-turbine.jpg')" }}>
+          <div className="bv-media-caption">Operator perspective. Commercial discipline. Organizational judgment. Executive focus.</div>
+        </div>
+      </section>
+
+      <section className="bv-image-band">
+        <div className="bv-image-band-media" style={{ backgroundImage: "url('/solutions/sales-compass.jpg')" }} />
+        <div className="bv-image-band-copy">
+          <p className="bv-kicker">Pattern Recognition</p>
+          <h2>Experience matters when it shortens the distance to the right question.</h2>
+          <p>Years inside sales and operating environments make it easier to recognize the recurring behaviors, incentives, and structural conditions behind performance.</p>
         </div>
       </section>
 
       <section className="bv-section">
         <div className="bv-section-head">
           <h2>Depth that<br />crosses functions.</h2>
-          <p>
-            Organizational problems rarely respect department lines. The useful perspective is the one that can follow a signal from strategy into behavior, from behavior into execution, and from execution into results.
-          </p>
+          <p>Organizational problems rarely respect department lines. The useful perspective follows a signal from strategy into behavior, from behavior into execution, and from execution into results.</p>
         </div>
         <div className="bv-list">
           {disciplines.map(([title, copy]) => (
@@ -50,6 +57,11 @@ export default function ExpertisePage() {
           <div className="bv-metric"><strong>Sales</strong><span>Growth engines, pricing, pipeline and execution</span></div>
           <div className="bv-metric"><strong>Ops</strong><span>Structure, accountability and operating discipline</span></div>
           <div className="bv-metric"><strong>Leadership</strong><span>Judgment, alignment and consequential decisions</span></div>
+        </div>
+        <div className="bv-visual-grid" aria-hidden="true">
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/sales-compass.jpg')" }}><span>Growth</span></div>
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/management-topography.jpg')" }}><span>Operations</span></div>
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/consulting-turbine.jpg')" }}><span>Judgment</span></div>
         </div>
       </section>
 
