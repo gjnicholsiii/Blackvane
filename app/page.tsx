@@ -139,7 +139,7 @@ export default function HomePage() {
             <a href="/about">About</a>
             <a href="/insights">Insights</a>
           </nav>
-          <a className="header-talk" href="/contact">Let&apos;s Talk</a>
+          <a className="header-talk" href="mailto:joe@blackvane13.com">Let&apos;s Talk</a>
         </header>
 
         <section className="video-hero">
@@ -156,7 +156,7 @@ export default function HomePage() {
             </p>
             <div className="hero-actions">
               <a className="primary-cta" href="/diagnostics">Explore Diagnostics</a>
-              <a className="secondary-cta" href="/contact">Confidential Conversation</a>
+              <a className="secondary-cta" href="mailto:joe@blackvane13.com">Confidential Conversation</a>
             </div>
           </div>
           <a className="hero-scroll" href="#reveal" aria-label="Continue"><span /></a>
