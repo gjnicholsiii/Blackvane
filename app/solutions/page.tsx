@@ -57,25 +57,12 @@ export default function SolutionsPage() {
 
   return (
     <main ref={root} className="solutions-page">
-      <header className="header">
-        <a className="wordmark" href="/">BLACKVANE</a>
-        <nav aria-label="Primary navigation">
-          <a href="/">HOME</a>
-          <a href="/about">ABOUT</a>
-          <a className="active" href="/solutions">SOLUTIONS</a>
-          <a href="/diagnostics">THE BLACKVANE FINDING</a>
-          <a href="/insights">INSIGHTS</a>
-          <a href="mailto:joe@blackvane13.com">CONTACT</a>
-        </nav>
-        <a className="talk" href="mailto:joe@blackvane13.com">LET&apos;S TALK</a>
-      </header>
-
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow">SOLUTIONS</p>
           <h1>Leadership. Clarity.<br />Results that last.</h1>
           <p>
-            Blackvane delivers senior-level expertise that strengthens your
+            Blackvane 13 delivers senior-level expertise that strengthens your
             business, your team, and your bottom line.
           </p>
           <p>On your terms. On your timeline.</p>
@@ -86,7 +73,7 @@ export default function SolutionsPage() {
       <section className="statement">
         <h2>EVERY BUSINESS FACES MOMENTS THAT REQUIRE MORE.</h2>
         <p>
-          More leadership. More clarity. More execution. Blackvane steps in with
+          More leadership. More clarity. More execution. Blackvane 13 steps in with
           the experience,
         </p>
         <p>judgment, and discipline to move your business forward.</p>
