@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./editorial.css";
 import "./editorial-images.css";
+import "./site-header.css";
 import SiteHeader from "./SiteHeader";
 
 export const metadata: Metadata = {
