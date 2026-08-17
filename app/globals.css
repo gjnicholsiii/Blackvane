@@ -29,6 +29,44 @@ main {
   background: var(--black);
 }
 
+.global-phone {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid rgba(198, 160, 106, .58);
+  background: rgba(5, 5, 5, .88);
+  color: var(--gold-light);
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .28);
+}
+
+.global-phone span {
+  color: rgba(198, 184, 162, .78);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+.global-phone strong {
+  color: #eee8df;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+}
+
+.global-phone:hover {
+  border-color: var(--gold-light);
+  background: rgba(12, 10, 8, .95);
+}
+
 .intro {
   position: fixed;
   inset: 0;
@@ -390,6 +428,22 @@ main {
 }
 
 @media (max-width: 900px) {
+  .global-phone {
+    right: 12px;
+    bottom: 12px;
+    min-height: 38px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .global-phone span {
+    font-size: 7px;
+  }
+
+  .global-phone strong {
+    font-size: 10px;
+  }
+
   .home-header {
     grid-template-columns: 1fr auto;
     height: 76px;
