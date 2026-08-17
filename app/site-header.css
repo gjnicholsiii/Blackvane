@@ -1,11 +1,11 @@
 .bv-site-header {
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, rgba(0,0,0,.88), rgba(0,0,0,.58), transparent);
 }
 
 .bv-site-header-home {
   position: absolute;
   inset: 0 0 auto;
-  background: linear-gradient(180deg, rgba(0,0,0,.88), rgba(0,0,0,.58), transparent);
 }
 
 .bv-site-mobile {
