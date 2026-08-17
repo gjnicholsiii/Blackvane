@@ -127,7 +127,14 @@ export default function HomePage() {
       </section>
 
       <div className="homepage">
-        <header className="bv-site-header bv-site-header-home">
+        <header
+          className="bv-site-header"
+          style={{
+            position: "absolute",
+            inset: "0 0 auto",
+            background: "linear-gradient(180deg, rgba(0,0,0,.88), rgba(0,0,0,.58), transparent)",
+          }}
+        >
           <a className="bv-site-wordmark" href="/" aria-label="Blackvane 13 home">
             BLACKVANE <span>13</span>
           </a>
