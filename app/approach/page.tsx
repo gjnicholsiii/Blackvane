@@ -17,17 +17,24 @@ export default function ApproachPage() {
             Blackvane 13 starts with the organization as it actually operates. We identify the forces shaping performance, isolate the real problem, and give leadership a clear course of action.
           </p>
         </div>
-        <div className="bv-hero-side">
-          Diagnose the conditions.<br />Find the pattern.<br />Name the decision.<br />Move.
+        <div className="bv-hero-media" style={{ backgroundImage: "url('/solutions/hero-vane.jpg')" }}>
+          <div className="bv-media-caption">Diagnose the conditions. Find the pattern. Name the decision. Move.</div>
+        </div>
+      </section>
+
+      <section className="bv-image-band">
+        <div className="bv-image-band-media" style={{ backgroundImage: "url('/solutions/management-topography.jpg')" }} />
+        <div className="bv-image-band-copy">
+          <p className="bv-kicker">The Method</p>
+          <h2>Read the pattern before prescribing the answer.</h2>
+          <p>The useful signal is rarely sitting in one department. It appears across decisions, incentives, behavior, reporting, and the way work actually moves.</p>
         </div>
       </section>
 
       <section className="bv-section">
         <div className="bv-section-head">
           <h2>Five stages.<br />One finding.</h2>
-          <p>
-            The work is deliberately direct. Each stage reduces noise and increases the quality of the decision in front of leadership.
-          </p>
+          <p>The work is deliberately direct. Each stage reduces noise and increases the quality of the decision in front of leadership.</p>
         </div>
 
         <div className="bv-grid">
