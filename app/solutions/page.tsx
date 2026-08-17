@@ -65,9 +65,9 @@ export default function SolutionsPage() {
           <a className="active" href="/solutions">SOLUTIONS</a>
           <a href="/diagnostics">THE BLACKVANE FINDING</a>
           <a href="/insights">INSIGHTS</a>
-          <a href="/contact">CONTACT</a>
+          <a href="mailto:joe@blackvane13.com">CONTACT</a>
         </nav>
-        <a className="talk" href="/contact">LET&apos;S TALK</a>
+        <a className="talk" href="mailto:joe@blackvane13.com">LET&apos;S TALK</a>
       </header>
 
       <section className="hero">
@@ -166,7 +166,7 @@ export default function SolutionsPage() {
         <div className="closing-cta">
           <h2>Then we get to work.</h2>
           <p>CLEAR DIRECTION. DISCIPLINED EXECUTION.<br />RESULTS THAT ENDURE.</p>
-          <a href="/contact">LET&apos;S TALK</a>
+          <a href="mailto:joe@blackvane13.com">LET&apos;S TALK</a>
         </div>
       </section>
     </main>
