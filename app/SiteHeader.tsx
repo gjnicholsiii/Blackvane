@@ -15,8 +15,15 @@ export default function SiteHeader({ embeddedHome = false }: SiteHeaderProps) {
 
   return (
     <header className={`bv-site-header${embeddedHome ? " bv-site-header-home" : ""}`}>
-      <a className="bv-site-wordmark" href="/" aria-label="Blackvane 13 home">
-        BLACKVANE <span>13</span>
+      <a className="bv-site-wordmark bv-site-wordmark-distressed" href="/" aria-label="Blackvane 13 home">
+        <span className="bv-distressed-name" aria-hidden="true">
+          <span className="bv-distressed-sizer">BLACKVANE</span>
+          <span className="bv-distressed-slice bv-slice-top">BLACKVANE</span>
+          <span className="bv-distressed-slice bv-slice-mid">BLACKVANE</span>
+          <span className="bv-distressed-slice bv-slice-low">BLACKVANE</span>
+          <span className="bv-distressed-slice bv-slice-base">BLACKVANE</span>
+        </span>
+        <span className="bv-wordmark-13" aria-hidden="true">13</span>
       </a>
 
       <nav aria-label="Primary navigation">
