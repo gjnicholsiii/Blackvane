@@ -15,9 +15,18 @@ export default function InsightsPage() {
             Perspective on leadership, execution, growth, organizational behavior, and the signals that reveal what a business is becoming.
           </p>
         </div>
-        <div className="bv-hero-side">
-          Leadership.<br />Performance.<br />Culture.<br />Strategy.<br />Operations.
+        <div className="bv-hero-media" style={{ backgroundImage: "url('/solutions/management-topography.jpg')" }}>
+          <div className="bv-media-caption">Leadership. Performance. Culture. Strategy. Operations.</div>
         </div>
+      </section>
+
+      <section className="bv-image-band">
+        <div className="bv-image-band-copy">
+          <p className="bv-kicker">What We Notice</p>
+          <h2>The signal hiding inside ordinary behavior.</h2>
+          <p>The most useful organizational insight often starts with something everyone can see and nobody has connected yet.</p>
+        </div>
+        <div className="bv-image-band-media" style={{ backgroundImage: "url('/solutions/hero-vane.jpg')" }} />
       </section>
 
       <section className="bv-section" id="featured-insights">
@@ -34,6 +43,12 @@ export default function InsightsPage() {
               <p>{copy}</p>
             </article>
           ))}
+        </div>
+
+        <div className="bv-visual-grid" aria-hidden="true">
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/hero-vane.jpg')" }}><span>Leadership</span></div>
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/sales-compass.jpg')" }}><span>Strategy</span></div>
+          <div className="bv-visual-card" style={{ backgroundImage: "url('/solutions/management-topography.jpg')" }}><span>Performance</span></div>
         </div>
       </section>
 
