@@ -135,7 +135,7 @@ function dedupe(leads: LeadSignal[]) {
 }
 
 async function enrichTop(leads: LeadSignal[]) {
-  const limit = Math.max(0, Math.min(Number(process.env.BLACKVANE_DAILY_ENRICH_LIMIT || 8), 20))
+  const limit = Math.max(0, Math.min(Number(process.env.BLACKVANE_DAILY_ENRICH_LIMIT || 5), 10))
   if (limit === 0) return leads
   const top = leads
     .filter(x => x.vertical === 'PRIMARY' && x.score >= 68 && !includesAny(x.company, RECRUITER_TERMS))
@@ -143,11 +143,14 @@ async function enrichTop(leads: LeadSignal[]) {
     .slice(0, limit)
   if (!top.length) return leads
 
-  const map = process.env.LUSHA_API_KEY
+  const paidLushaEnabled = process.env.BLACKVANE_LUSHA_ENABLED === 'true' && Boolean(process.env.LUSHA_API_KEY)
+  const paidApolloEnabled = process.env.BLACKVANE_APOLLO_ENABLED === 'true' && Boolean(process.env.APOLLO_API_KEY)
+
+  const map = paidLushaEnabled
     ? await enrichCompaniesWithLusha(top.map(x=>x.company), limit)
     : new Map<string, DecisionMaker | null>()
 
-  if (process.env.APOLLO_API_KEY) {
+  if (paidApolloEnabled) {
     for (const lead of top) {
       if (map.get(lead.company)?.name) continue
       try { map.set(lead.company, await findDecisionMaker(lead.company)) } catch { map.set(lead.company, null) }
