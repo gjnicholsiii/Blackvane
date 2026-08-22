@@ -1,6 +1,8 @@
 import './command.css'
 import { getMorningBrief } from '../../lib/lead-engine'
 
+export const dynamic = 'force-dynamic'
+
 export default async function CommandPage() {
   const brief = await getMorningBrief()
   return (
