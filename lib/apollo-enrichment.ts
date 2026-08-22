@@ -5,7 +5,7 @@ export type DecisionMaker = {
   phone: string
   linkedinUrl: string
   organizationDomain: string
-  source: 'Apollo' | 'Public'
+  source: 'Apollo' | 'Lusha' | 'Public'
   verified: boolean
 }
 
