@@ -128,7 +128,7 @@ export async function enrichCompaniesWithLusha(companies: string[], maxCompanies
       phone: getPhone(person),
       linkedinUrl: str(person?.linkedinUrl || person?.linkedin_url || item.person?.linkedinUrl),
       organizationDomain: str(person?.company?.domain || person?.companyDomain || item.person?.company?.domain),
-      source: 'Public',
+      source: 'Lusha',
       verified: Boolean(getEmail(person) || getPhone(person))
     })
   }
