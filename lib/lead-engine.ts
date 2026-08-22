@@ -1,4 +1,5 @@
 import { findDecisionMaker, type DecisionMaker } from './apollo-enrichment'
+import { enrichCompaniesWithLusha } from './lusha-enrichment'
 
 export type LeadSignal = {
   company: string
@@ -30,7 +31,8 @@ const PRIMARY_TERMS = Object.values(CATEGORY_TERMS).flat()
 const SALES_TERMS = [
   'vp sales','vice president sales','vice president of sales','director of sales','sales director','regional sales manager',
   'sales manager','business development director','director business development','chief revenue officer','cro','branch manager',
-  'general manager','president','coo','chief operating officer','head of sales','sales leader'
+  'general manager','president','coo','chief operating officer','head of sales','sales leader','account executive','sales executive',
+  'business development manager','regional account manager','territory manager','national account manager','sales engineer'
 ]
 const HIGH_VALUE_TERMS = ['vp sales','vice president','chief revenue officer','cro','director of sales','sales director','general manager','president','coo','head of sales']
 const RECRUITER_TERMS = ['recruiter','staffing','talent acquisition','executive search','headhunter','recruitment']
@@ -51,14 +53,14 @@ function scoreLead(input: { title: string; company: string; description: string;
   if (primary) score += 38
   if (sales) score += 18
   if (includesAny(blob, HIGH_VALUE_TERMS)) score += 10
-  if (/sales|revenue|business development/.test(blob)) score += 4
+  if (/sales|revenue|business development|account executive|territory/.test(blob)) score += 4
   if (/manager|director|vice president|president|chief|head of/.test(blob)) score += 5
   if (includesAny(input.company, RECRUITER_TERMS)) score -= 25
   score = Math.max(0, Math.min(score, 99))
   const vertical = primary ? 'PRIMARY' as const : 'SECONDARY' as const
   const category = categoryFor(blob)
   const reason = primary && sales
-    ? `${category} company showing a revenue-leadership hiring signal.`
+    ? `${category} company showing a revenue-leadership or sales-growth signal.`
     : primary
       ? `${category} company showing active hiring or expansion.`
       : 'Secondary company showing a potentially useful leadership or revenue signal.'
@@ -68,9 +70,12 @@ function scoreLead(input: { title: string; company: string; description: string;
 
 async function fetchPublicJobs(): Promise<LeadSignal[]> {
   const queries = [
-    'access control sales director','security director of sales','video surveillance sales director','fire alarm sales director',
-    'nurse call sales director','low voltage sales director','security integrator business development','structured cabling sales manager',
-    'physical security sales manager','electronic security sales director','fire life safety business development','av integration sales director'
+    'access control sales','security systems sales','video surveillance sales','fire alarm sales','nurse call sales',
+    'low voltage sales','security integrator sales','structured cabling sales','physical security sales','electronic security sales',
+    'fire life safety sales','av integration sales','building automation sales','security business development','access control business development',
+    'fire protection business development','low voltage business development','nurse call business development','security account executive',
+    'access control account executive','low voltage account executive','fire alarm account executive','security sales manager','low voltage sales manager',
+    'security director of sales','low voltage director of sales','security regional sales manager','fire alarm sales manager'
   ]
   const out: LeadSignal[] = []
   for (const q of queries) {
@@ -88,7 +93,7 @@ async function fetchPublicJobs(): Promise<LeadSignal[]> {
         const sourceUrl = text(row.url || row.apply_url || row.job_url || row.source_url)
         if (!title || !company) continue
         const scored = scoreLead({ title, company, description, location })
-        if (scored.score < 58) continue
+        if (scored.score < 55) continue
         out.push({ company, title, location, source: 'Public Jobs', sourceUrl, publishedAt: text(row.published_at || row.date_posted || row.created_at), ...scored })
       }
     } catch {}
@@ -99,7 +104,7 @@ async function fetchPublicJobs(): Promise<LeadSignal[]> {
 async function fetchMuseJobs(): Promise<LeadSignal[]> {
   const out: LeadSignal[] = []
   try {
-    for (let page = 0; page < 8; page++) {
+    for (let page = 0; page < 12; page++) {
       const res = await fetch(`https://www.themuse.com/api/public/jobs?page=${page}`, { next: { revalidate: 3600 } })
       if (!res.ok) break
       const body: any = await res.json()
@@ -111,7 +116,7 @@ async function fetchMuseJobs(): Promise<LeadSignal[]> {
         const location = Array.isArray(row.locations) ? row.locations.map((x:any)=>x.name).filter(Boolean).join(', ') : ''
         const sourceUrl = text(row.refs?.landing_page)
         const scored = scoreLead({ title, company, description, location })
-        if (scored.score < 58) continue
+        if (scored.score < 55) continue
         out.push({ company, title, location, source: 'The Muse', sourceUrl, publishedAt: text(row.publication_date), ...scored })
       }
     }
@@ -130,12 +135,23 @@ function dedupe(leads: LeadSignal[]) {
 }
 
 async function enrichTop(leads: LeadSignal[]) {
-  const limit = Math.max(0, Math.min(Number(process.env.BLACKVANE_DAILY_ENRICH_LIMIT || 10), 25))
-  if (!process.env.APOLLO_API_KEY || limit === 0) return leads
-  const top = leads.filter(x => x.vertical === 'PRIMARY' && x.score >= 75 && !includesAny(x.company, RECRUITER_TERMS)).slice(0, limit)
-  const map = new Map<string, DecisionMaker | null>()
-  for (const lead of top) {
-    try { map.set(lead.company, await findDecisionMaker(lead.company)) } catch { map.set(lead.company, null) }
+  const limit = Math.max(0, Math.min(Number(process.env.BLACKVANE_DAILY_ENRICH_LIMIT || 8), 20))
+  if (limit === 0) return leads
+  const top = leads
+    .filter(x => x.vertical === 'PRIMARY' && x.score >= 68 && !includesAny(x.company, RECRUITER_TERMS))
+    .filter((lead, index, all)=> all.findIndex(x=>x.company.toLowerCase()===lead.company.toLowerCase())===index)
+    .slice(0, limit)
+  if (!top.length) return leads
+
+  const map = process.env.LUSHA_API_KEY
+    ? await enrichCompaniesWithLusha(top.map(x=>x.company), limit)
+    : new Map<string, DecisionMaker | null>()
+
+  if (process.env.APOLLO_API_KEY) {
+    for (const lead of top) {
+      if (map.get(lead.company)?.name) continue
+      try { map.set(lead.company, await findDecisionMaker(lead.company)) } catch { map.set(lead.company, null) }
+    }
   }
   return leads.map(l => ({ ...l, decisionMaker: map.has(l.company) ? map.get(l.company) : null }))
 }
@@ -147,7 +163,7 @@ export async function getMorningBrief() {
   const secondary = enriched.filter(x => x.vertical === 'SECONDARY')
   return {
     generatedAt: new Date().toISOString(),
-    primary: primary.slice(0, 40),
+    primary: primary.slice(0, 80),
     secondary: secondary.slice(0, 10),
     stats: {
       scanned: gathered.length,
