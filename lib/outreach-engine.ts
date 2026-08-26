@@ -77,7 +77,7 @@ function firstName(name: string | null) {
 
 function subjectFor(company: OutreachCompany, step: number) {
   if (step === 1) {
-    if ((company.lane || '').includes('Revenue')) return `Before you add more sales capacity`
+    if ((company.lane || '').includes('Revenue')) return `Saw you’re growing the sales team`
     if ((company.lane || '').includes('Execution')) return `Growth showing up in operations`
     return `A question about ${company.company}`
   }
@@ -87,10 +87,10 @@ function subjectFor(company: OutreachCompany, step: number) {
 
 function bodyFor(company: OutreachCompany, step: number) {
   const name = firstName(company.decision_maker)
-  const trigger = company.trigger_text || 'the growth activity around the company'
+  const trigger = company.trigger_text || 'growing the team'
   if (step === 1) {
     if ((company.lane || '').includes('Revenue')) {
-      return `Hi ${name} — I noticed ${company.company} is ${trigger.charAt(0).toLowerCase()}${trigger.slice(1)}.\n\nThat caught my attention because adding sales capacity can accelerate revenue, but it can also conceal a sales-system problem for another six months.\n\nI work with growing security and low-voltage companies on revenue, retention and execution problems. Blackvane's initial engagement is a short diagnostic: find the constraint, document it, and put it on the desk of the person who can fix it.\n\nGiven what is happening at ${company.company}, I thought it might be worth comparing notes for 15 minutes.\n\nJoe`
+      return `Hi ${name},\n\nI saw ${company.company} is ${trigger.charAt(0).toLowerCase()}${trigger.slice(1)}.\n\nBlackvane works with companies that want to grow revenue without wasting six months guessing at the problem. Sometimes that means fractional sales leadership. Sometimes it means building or rebuilding the sales process. Sometimes it is pipeline, accountability, territory, compensation, hiring, forecasting, or figuring out why a capable team is producing less than it should.\n\nWe also step in at the leadership level when a company needs experienced sales direction without adding another full-time executive.\n\nEverything starts with a diagnostic look at what is actually happening inside the revenue engine, and our work carries a money-back guarantee.\n\nIf any of that is relevant to what you are building at ${company.company}, let’s talk.\n\nJoe`
     }
     return `Hi ${name} — I noticed ${company.company} is ${trigger.charAt(0).toLowerCase()}${trigger.slice(1)}.\n\nGrowth in security and low-voltage companies tends to expose the expensive parts of the operation first: project ownership, labor utilization, handoffs, margin, scheduling and management bandwidth.\n\nThat is the work I diagnose through Blackvane. I identify the actual failure point and give management a specific written finding rather than another consulting deck.\n\nGiven the activity at ${company.company}, I thought it might be worth a 15-minute conversation.\n\nJoe`
   }
