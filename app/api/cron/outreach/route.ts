@@ -33,25 +33,23 @@ function firstName(name: string | null) {
   return (name || '').trim().split(/\s+/)[0] || 'there'
 }
 
-function firstContact(company: string, person: string | null, trigger: string | null) {
-  const name = firstName(person)
-  const signal = trigger || 'growing the team'
-  return {
-    subject: company,
-    body: `Hi ${name},\n\nI saw ${company} is ${signal.charAt(0).toLowerCase()}${signal.slice(1)} and thought I’d reach out.\n\nBlackvane is pretty simple. We help companies sell more and get better at the mechanics behind selling. That can mean a diagnostic when something in sales clearly isn’t working, fractional sales when you need someone actually doing the work, fractional sales leadership when the team needs direction, or helping rebuild the process around prospecting, pipeline, follow-up, forecasting, territories, comp and accountability.\n\nWe can tell you where we think the problem is, help fix it, or both. We also put a money-back guarantee behind our work.\n\nIf sales is part of what’s driving the hiring at ${company}, let’s talk.\n\nJoe\nBlackvane\nblackvane13.com`
-  }
-}
-
 function draft(step: number, company: string, person: string | null, lane: string | null, trigger: string | null) {
   const name = firstName(person)
-  if (step === 1) return firstContact(company, person, trigger)
+  const signal = trigger || 'growing the business'
+
+  if (step === 1) return {
+    subject: 'A growth question',
+    body: `Hi ${name},\n\nI’ve spent the last few years helping companies grow by roughly $25 million.\n\nWhat I learned is that growth usually exposes the problem before management can see it clearly. Sales, estimating, leadership, handoffs, accountability, margin. One of them starts costing money long before anyone labels it the problem.\n\nI’ve been looking at ${company} because ${signal.charAt(0).toLowerCase()}${signal.slice(1)}.\n\nI have a thought about where I’d look first.\n\nWorth a conversation?\n\nJoe`
+  }
+
   if (step === 2) return {
     subject: `Re: ${company}`,
-    body: `${name}, just bringing this back up. If sales growth is creating a need for more hands, better direction, or a stronger process at ${company}, Blackvane can step in for the diagnostic, the fractional sales work, the leadership, or all three.\n\nIf it is relevant, let’s talk.\n\nJoe`
+    body: `${name}, one follow-up because the growth signal at ${company} is the kind of thing that usually exposes an expensive constraint before it becomes obvious.\n\nIf useful, I’ll tell you where I’d look first.\n\nJoe`
   }
+
   return {
     subject: `Re: ${company}`,
-    body: `${name}, last note from me. If sales becomes something you want another set of experienced eyes or hands on at ${company}, I’m easy to find.\n\nJoe`
+    body: `${name}, I’ll leave it here after this one. I’ve spent enough time inside growing companies to know the expensive problem is often sitting one layer below the obvious one.\n\nIf you want another set of eyes on ${company}, let’s talk.\n\nJoe`
   }
 }
 
@@ -60,13 +58,18 @@ export async function GET(request: NextRequest) {
   const sql = db()
   const settingsRows = await sql`select mode,paused,daily_new_limit,daily_followup_limit,sender_name,sender_email from outreach_settings where id=1`
   const settings = settingsRows[0] as any
-  if (!settings || settings.paused) return NextResponse.json({ ok: true, paused: true })
+
+  // Absolute safety gate. Cron cannot create, queue, or send outreach unless Auto Mode is explicitly enabled and the engine is unpaused.
+  if (!settings || settings.paused || settings.mode !== 'AUTO') {
+    return NextResponse.json({ ok: true, paused: Boolean(settings?.paused), mode: settings?.mode || 'UNKNOWN', sending: 'disabled' })
+  }
 
   const now = new Date()
   let created = 0
   let sent = 0
   let failed = 0
 
+  // These are true day-wide limits, not per-cron-run limits.
   const sentTodayRows = await sql`
     select
       count(*) filter (where status='SENT' and sequence_step=1 and sent_at::date=current_date)::int as new_sent,
@@ -90,15 +93,10 @@ export async function GET(request: NextRequest) {
     for (const c of due) {
       const step = Number(c.sequence_step || 1) + 1
       const msg = draft(step, c.company, c.decision_maker, c.lane, c.trigger_text)
-      const status = settings.mode === 'AUTO' ? 'QUEUED' : 'DRAFT'
-      await sql`insert into outreach_messages(company_id,sequence_step,subject,body,status,scheduled_at) values(${c.id},${step},${msg.subject},${msg.body},${status},${status === 'QUEUED' ? now.toISOString() : null})`
-      await sql`update outreach_companies set sequence_step=${step},status=${status === 'QUEUED' ? 'QUEUED' : 'DRAFT'},next_send_at=null,updated_at=now() where id=${c.id}`
+      await sql`insert into outreach_messages(company_id,sequence_step,subject,body,status,scheduled_at) values(${c.id},${step},${msg.subject},${msg.body},'QUEUED',now())`
+      await sql`update outreach_companies set sequence_step=${step},status='QUEUED',next_send_at=null,updated_at=now() where id=${c.id}`
       created++
     }
-  }
-
-  if (settings.mode !== 'AUTO') {
-    return NextResponse.json({ ok: true, mode: settings.mode, created, sent: 0, sending: 'disabled-in-draft-mode' })
   }
 
   if (remainingNew > 0) {
