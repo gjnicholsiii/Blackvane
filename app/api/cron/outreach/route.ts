@@ -69,7 +69,7 @@ export async function GET(request: NextRequest) {
   let sent = 0
   let failed = 0
 
-  // These are true day-wide limits, not per-cron-run limits.
+  // True day-wide limits, never per cron invocation.
   const sentTodayRows = await sql`
     select
       count(*) filter (where status='SENT' and sequence_step=1 and sent_at::date=current_date)::int as new_sent,
@@ -84,8 +84,13 @@ export async function GET(request: NextRequest) {
     const due = await sql`
       select id,company,decision_maker,email,lane,trigger_text,sequence_step,status
       from outreach_companies
-      where suppressed=false and email is not null and next_send_at is not null and next_send_at<=now()
-        and sequence_step between 1 and 2 and status in ('FOLLOW_UP','SENT')
+      where suppressed=false
+        and email is not null
+        and upper(contact_quality)='VERIFIED'
+        and next_send_at is not null
+        and next_send_at<=now()
+        and sequence_step between 1 and 2
+        and status in ('FOLLOW_UP','SENT')
       order by next_send_at asc
       limit ${remainingFollowup}
     ` as any[]
@@ -103,7 +108,12 @@ export async function GET(request: NextRequest) {
     const newRows = await sql`
       select id,company,decision_maker,email,lane,trigger_text
       from outreach_companies
-      where suppressed=false and email is not null and status in ('NEW','READY') and sequence_step=0
+      where suppressed=false
+        and email is not null
+        and upper(contact_quality)='VERIFIED'
+        and decision_maker is not null
+        and status in ('NEW','READY')
+        and sequence_step=0
       order by score desc, created_at asc
       limit ${remainingNew}
     ` as any[]
@@ -123,7 +133,11 @@ export async function GET(request: NextRequest) {
   const queued = await sql`
     select m.id,m.company_id,m.sequence_step,m.subject,m.body,c.company,c.email
     from outreach_messages m join outreach_companies c on c.id=m.company_id
-    where m.status='QUEUED' and c.suppressed=false and m.scheduled_at<=now()
+    where m.status='QUEUED'
+      and c.suppressed=false
+      and upper(c.contact_quality)='VERIFIED'
+      and c.decision_maker is not null
+      and m.scheduled_at<=now()
       and (
         (m.sequence_step=1 and ${remainingNew} > 0)
         or
