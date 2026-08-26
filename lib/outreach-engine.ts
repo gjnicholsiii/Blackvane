@@ -76,28 +76,23 @@ function firstName(name: string | null) {
 }
 
 function subjectFor(company: OutreachCompany, step: number) {
-  if (step === 1) {
-    if ((company.lane || '').includes('Revenue')) return `Saw you’re growing the sales team`
-    if ((company.lane || '').includes('Execution')) return `Growth showing up in operations`
-    return `A question about ${company.company}`
-  }
-  if (step === 2) return `Re: ${company.company}`
-  return `Last note from me`
+  if (step === 1) return 'A growth question'
+  return `Re: ${company.company}`
 }
 
 function bodyFor(company: OutreachCompany, step: number) {
   const name = firstName(company.decision_maker)
-  const trigger = company.trigger_text || 'growing the team'
+  const trigger = company.trigger_text || 'growing the business'
+
   if (step === 1) {
-    if ((company.lane || '').includes('Revenue')) {
-      return `Hi ${name},\n\nI saw ${company.company} is ${trigger.charAt(0).toLowerCase()}${trigger.slice(1)}.\n\nBlackvane works with companies that want to grow revenue without wasting six months guessing at the problem. Sometimes that means fractional sales leadership. Sometimes it means building or rebuilding the sales process. Sometimes it is pipeline, accountability, territory, compensation, hiring, forecasting, or figuring out why a capable team is producing less than it should.\n\nWe also step in at the leadership level when a company needs experienced sales direction without adding another full-time executive.\n\nEverything starts with a diagnostic look at what is actually happening inside the revenue engine, and our work carries a money-back guarantee.\n\nIf any of that is relevant to what you are building at ${company.company}, let’s talk.\n\nJoe`
-    }
-    return `Hi ${name} — I noticed ${company.company} is ${trigger.charAt(0).toLowerCase()}${trigger.slice(1)}.\n\nGrowth in security and low-voltage companies tends to expose the expensive parts of the operation first: project ownership, labor utilization, handoffs, margin, scheduling and management bandwidth.\n\nThat is the work I diagnose through Blackvane. I identify the actual failure point and give management a specific written finding rather than another consulting deck.\n\nGiven the activity at ${company.company}, I thought it might be worth a 15-minute conversation.\n\nJoe`
+    return `Hi ${name},\n\nI’ve spent the last few years helping companies grow by roughly $25 million.\n\nWhat I learned is that growth usually exposes the problem before management can see it clearly. Sales, estimating, leadership, handoffs, accountability, margin. One of them starts costing money long before anyone labels it the problem.\n\nI’ve been looking at ${company.company} because ${trigger.charAt(0).toLowerCase()}${trigger.slice(1)}.\n\nI have a thought about where I’d look first.\n\nWorth a conversation?\n\nJoe`
   }
+
   if (step === 2) {
-    return `${name}, bringing this back up because the growth signal at ${company.company} is exactly when I usually find something worth fixing.\n\nHappy to tell you in 15 minutes what I would look at first.\n\nJoe`
+    return `${name}, one follow-up because the growth signal at ${company.company} is the kind of thing that usually exposes an expensive constraint before it becomes obvious.\n\nIf useful, I’ll tell you where I’d look first.\n\nJoe`
   }
-  return `${name}, I’ll leave this with you after this one. If revenue production, retention, estimating, project handoff or execution starts costing more than it should at ${company.company}, that is my lane.\n\nJoe`
+
+  return `${name}, I’ll leave it here after this one. I’ve spent enough time inside growing companies to know the expensive problem is often sitting one layer below the obvious one.\n\nIf you want another set of eyes on ${company.company}, let’s talk.\n\nJoe`
 }
 
 export async function createDraft(companyId: number, step = 1) {
