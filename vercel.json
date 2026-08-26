@@ -4,8 +4,5 @@
       "path": "/api/cron/outreach",
       "schedule": "*/15 * * * *"
     }
-  ],
-  "build": {
-    "envRefresh": "2026-08-26"
-  }
+  ]
 }
