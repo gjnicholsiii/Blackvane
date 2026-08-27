@@ -95,7 +95,6 @@ export async function GET(request: NextRequest) {
     }
     if (c.suppressed) { skipped.push({ company: c.company, reason: 'suppressed' }); continue }
     if (!c.decision_maker || !c.email) { skipped.push({ company: c.company, reason: 'missing-contact' }); continue }
-    if (String(c.contact_quality || '').toUpperCase() !== 'VERIFIED') { skipped.push({ company: c.company, reason: 'not-verified' }); continue }
     const prior = await sql`select id from outreach_messages where company_id=${c.id} and sequence_step=1 and status='SENT' limit 1`
     if (prior.length) { skipped.push({ company: c.company, reason: 'already-sent' }); continue }
 
