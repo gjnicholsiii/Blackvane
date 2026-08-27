@@ -49,6 +49,23 @@ export default function ExpertisePage() {
 
       <section className="bv-section">
         <div className="bv-section-head">
+          <p className="bv-kicker">Specialist Practice</p>
+          <h2>Campus Security<br />Advisory.</h2>
+          <p>Owner-side security assessment, procurement intelligence and project oversight informed by years spent pursuing, estimating and selling security projects from the bidder&apos;s side.</p>
+        </div>
+        <div className="bv-metrics">
+          <div className="bv-metric"><strong>Assess</strong><span>Campus vulnerabilities, systems and priorities</span></div>
+          <div className="bv-metric"><strong>Define</strong><span>Strategy, standards, scope and budget</span></div>
+          <div className="bv-metric"><strong>Procure</strong><span>RFP, bid normalization and selection</span></div>
+          <div className="bv-metric"><strong>Protect</strong><span>Oversight, substitutions and change orders</span></div>
+        </div>
+        <div style={{ marginTop: "32px" }}>
+          <a className="bv-button" href="/campus-security">Explore Campus Security</a>
+        </div>
+      </section>
+
+      <section className="bv-section">
+        <div className="bv-section-head">
           <h2>Perspective<br />earned over time.</h2>
           <p>Years inside complex sales and operating environments create pattern recognition that is difficult to reproduce from outside the work.</p>
         </div>
